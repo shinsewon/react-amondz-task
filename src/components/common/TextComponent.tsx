@@ -8,6 +8,7 @@ function TextComponent({
   lineHeight,
   color = '#1B1B21',
   wordBreak = 'keep-all',
+  margin = '0px',
 }: TextType) {
   return (
     <p
@@ -17,6 +18,7 @@ function TextComponent({
         fontWeight,
         lineHeight,
         wordBreak,
+        margin,
         ...style,
       }}
     >

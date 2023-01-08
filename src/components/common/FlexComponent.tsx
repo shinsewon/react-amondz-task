@@ -9,6 +9,7 @@ function FlexComponent({
   flexSet = ['flex-start', 'flex-start', 'flex-start'],
   flexWrap,
   flexDirection = 'row',
+  backgroundColor,
 }: ComponentCssType) {
   return (
     <div
@@ -18,6 +19,7 @@ function FlexComponent({
         display: 'flex',
         flexDirection,
         flexWrap,
+        backgroundColor,
         ...getFlexStyle(flexSet),
         ...getPaddingOrMarginStyle(padding, 'padding'),
         ...getPaddingOrMarginStyle(margin, 'margin'),

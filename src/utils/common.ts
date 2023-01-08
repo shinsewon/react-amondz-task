@@ -5,7 +5,9 @@ export const getPaddingOrMarginStyle = (
   const style = { [key]: '' };
 
   if (arrValue.length === 4) {
-    style.key = `${arrValue[0]}px ${arrValue[1]}px ${arrValue[2]}px ${arrValue[3]}px`;
+    style[
+      key
+    ] = `${arrValue[0]}px ${arrValue[1]}px ${arrValue[2]}px ${arrValue[3]}px`;
   }
   if (arrValue.length === 2) {
     style[key] = `${arrValue[0]}px ${arrValue[1]}px`;

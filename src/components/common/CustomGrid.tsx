@@ -17,11 +17,6 @@ function CustomGrid() {
     return MobileCol;
   };
 
-  // const column = Math.floor(
-  //   ((isDesktopSize ? PcCol : isTablet ? TabletCol : MobileCol) / 100) *
-  //     windowWidth,
-  // );
-
   const column = Math.floor((deviceSize() / 100) * windowWidth);
 
   return (

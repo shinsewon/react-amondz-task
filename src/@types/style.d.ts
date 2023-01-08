@@ -28,13 +28,24 @@ declare global {
 
   type MarginPaddingType = 'margin' | 'padding';
 
-  type FlexSetType = {
+  interface FlexSetType {
     justifyContent?: string;
     alignItems?: string;
     alignContent?: string;
-  };
+  }
 
-  type ComponentCssType = {
+  interface TextType {
+    fontSize?: number;
+    fontWeight?: number | string;
+    lineHeight?: number;
+    color?: string;
+    children: React.ReactNode;
+    style?: any;
+    margin?: string;
+    wordBreak?: 'normal' | 'break-all' | 'keep-all' | 'break-word';
+  }
+
+  interface ComponentCssType {
     flexDirection?: FlexDirection;
     flexWrap?: FlexWrap;
     flexSet?: [FlexSet, AlignItems, FlexSet];
@@ -48,30 +59,20 @@ declare global {
     backgroundColor?: string;
     borderColor?: string;
     style?: any;
-  };
+  }
 
-  type BorderComponentCssType = ComponentCssType & {
+  interface BorderComponentCssType extends ComponentCssType {
     borderWidth?: number;
     borderHeight?: string;
     borderRadius?: number;
     borderType?: string;
-  };
+  }
 
-  type ButtonComponentCssType = ComponentCssType & {
+  interface ButtonComponentCssType extends ComponentCssType {
     hoverBackgroundColor: string;
     borderRadius?: number;
     hoverColor?: string;
     onClick: () => void;
     type: 'button' | 'submit' | 'reset';
-  };
-
-  type TextType = {
-    fontSize?: number;
-    fontWeight?: number | string;
-    lineHeight?: number;
-    color?: string;
-    children: React.ReactNode;
-    style?: any;
-    wordBreak?: 'normal' | 'break-all' | 'keep-all' | 'break-word';
-  };
+  }
 }
