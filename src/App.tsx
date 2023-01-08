@@ -1,11 +1,13 @@
-import React from 'react';
-import { MainPage } from 'pages';
+import { Suspense, lazy } from 'react';
+import { LoadingComponent } from 'components';
+
+const LazyMainPage = lazy(() => import('./pages/MainPage'));
 
 function App() {
   return (
-    <div>
-      <MainPage />
-    </div>
+    <Suspense fallback={<LoadingComponent />}>
+      <LazyMainPage />
+    </Suspense>
   );
 }
 

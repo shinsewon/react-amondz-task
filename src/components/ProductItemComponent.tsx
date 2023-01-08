@@ -14,6 +14,7 @@ function ProductItemComponent({
   onRemoveItem,
   onClickModifyBtn,
 }: IProductItemProps) {
+  const imageUrl = product.imageUrl.split('?')[0];
   const isSale = +product.sale !== 0;
   const showPrice = (originPrice: number, rate: number): number => {
     const savePrice = originPrice * (rate / 100);
@@ -26,6 +27,20 @@ function ProductItemComponent({
     [product.price, product.sale],
   );
 
+  function getParametersForUnsplash({
+    width,
+    height,
+    quality,
+    format,
+  }: {
+    width: number;
+    height: number;
+    quality: number;
+    format: string;
+  }) {
+    return `?w=${width}&h=${height}&q=${quality}&fm=${format}&fit=crop`;
+  }
+
   return (
     <FlexComponent flexDirection="column" style={{ minHeight: 300, gap: 5 }}>
       <Item>
@@ -33,16 +48,15 @@ function ProductItemComponent({
           loading="lazy"
           decoding="async"
           alt={product.imageUrl}
-          src={product.imageUrl}
-          // src={
-          //   imageUrl +
-          //   getParametersForUnsplash({
-          //     width: 250,
-          //     height: 200,
-          //     quality: 80,
-          //     format: "jpg",
-          //   })
-          // }
+          src={
+            imageUrl +
+            getParametersForUnsplash({
+              width: 200,
+              height: 200,
+              quality: 80,
+              format: 'jpg',
+            })
+          }
           // onError={handleImgError}
           style={{
             position: 'absolute',

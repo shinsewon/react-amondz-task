@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import { FlexComponent, TextComponent } from 'components/common';
 import { IProductItemProps } from 'components/ProductItemComponent';
 import { ProductItemComponent } from 'components';
 
-const Div = styled.div`
+const NextArrow = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +17,7 @@ const Div = styled.div`
   text-align: right;
   line-height: 30px;
 `;
-const DivPre = styled.div`
+const PrevArrow = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,8 +38,8 @@ const settings = {
   slidesToShow: 3,
   slidesToScroll: 3,
   initialSlide: 0,
-  nextArrow: <Div />,
-  prevArrow: <DivPre />,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
   responsive: [
     {
       breakpoint: 1025,

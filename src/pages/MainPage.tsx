@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  FocusEvent,
-  useEffect,
-  Suspense,
-  lazy,
-} from 'react';
+import { useCallback, FocusEvent, useEffect } from 'react';
 import { useQuery, useQueryClient } from 'react-query';
 import { Form, Modal, Empty } from 'antd';
 import { getProductItems, setProductItems, useResponsive } from 'hooks';
@@ -12,7 +6,6 @@ import { useMainState, useMainDispatch, actions } from 'context/main';
 import { showConfirm } from 'utils';
 import { DUMMY } from 'constants/common';
 import {
-  CustomGrid,
   FlexComponent,
   SizedComponent,
   BorderComponent,
@@ -191,8 +184,6 @@ function MainPage() {
 
   return (
     <div>
-      {/* <CustomGrid /> */}
-
       <SizedComponent
         Col={responseType(6, 10, 10)}
         Gutter={responseType(5, 9, 9)}
@@ -229,8 +220,10 @@ function MainPage() {
           )}
         </FlexComponent>
       </SizedComponent>
+
       <FloatButtonComponent onClick={showModal} isDesktopSize={isDesktopSize} />
-      {isModalOpen && (
+
+      {isModalOpen ? (
         <ModalComponent
           form={form}
           isModalOpen={isModalOpen}
@@ -239,7 +232,7 @@ function MainPage() {
           onFinish={onFinish}
           onModify={onModify}
         />
-      )}
+      ) : null}
     </div>
   );
 }
