@@ -9,6 +9,7 @@ import {
   FlexComponent,
   SizedComponent,
   BorderComponent,
+  CustomGrid,
 } from 'components/common';
 import {
   ProductComponent,
@@ -184,6 +185,7 @@ function MainPage() {
 
   return (
     <div>
+      {/* <CustomGrid /> */}
       <SizedComponent
         Col={responseType(6, 10, 10)}
         Gutter={responseType(5, 9, 9)}
