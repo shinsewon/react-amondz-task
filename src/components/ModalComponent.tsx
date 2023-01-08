@@ -1,4 +1,4 @@
-import React, { FocusEvent } from 'react';
+import { FocusEvent } from 'react';
 import { Modal, Form, Input, Button, Image, FormInstance, Select } from 'antd';
 import { useFormValidation } from 'hooks';
 import { FALLBACK } from 'constants/common';

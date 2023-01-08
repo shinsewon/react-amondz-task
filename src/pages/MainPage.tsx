@@ -185,7 +185,8 @@ function MainPage() {
 
   return (
     <div>
-      {/* <CustomGrid /> */}
+      {/* 구글 머티리얼 디자인 그리드 UI */}
+      {/* <CustomGrid />  */}
       <SizedComponent
         Col={responseType(6, 10, 10)}
         Gutter={responseType(5, 9, 9)}

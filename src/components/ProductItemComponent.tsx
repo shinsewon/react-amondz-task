@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 import { Button } from 'antd';
 import styled from 'styled-components';
 import { FlexComponent, TextComponent } from 'components/common';
@@ -27,19 +27,22 @@ function ProductItemComponent({
     [product.price, product.sale],
   );
 
-  function getParametersForUnsplash({
-    width,
-    height,
-    quality,
-    format,
-  }: {
-    width: number;
-    height: number;
-    quality: number;
-    format: string;
-  }) {
-    return `?w=${width}&h=${height}&q=${quality}&fm=${format}&fit=crop`;
-  }
+  const getParametersForUnsplash = useCallback(
+    ({
+      width,
+      height,
+      quality,
+      format,
+    }: {
+      width: number;
+      height: number;
+      quality: number;
+      format: string;
+    }) => {
+      return `?w=${width}&h=${height}&q=${quality}&fm=${format}&fit=crop`;
+    },
+    [],
+  );
 
   return (
     <FlexComponent flexDirection="column" style={{ minHeight: 300, gap: 5 }}>
@@ -57,7 +60,6 @@ function ProductItemComponent({
               format: 'jpg',
             })
           }
-          // onError={handleImgError}
           style={{
             position: 'absolute',
             top: 0,
